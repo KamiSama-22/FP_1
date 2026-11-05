@@ -1,0 +1,16 @@
+import {
+    IsNotEmpty,
+    IsString,
+    MaxLength,
+} from 'class-validator';
+
+export class CreatePublisherDto {
+
+    @IsString({ message: 'Nama penerbit harus berupa teks' })
+    @IsNotEmpty({ message: 'Nama penerbit harus diisi' })
+    @MaxLength(150, {
+        message: 'Nama penerbit maksimal 150 karakter',
+    })
+    
+    readonly name: string;
+}
